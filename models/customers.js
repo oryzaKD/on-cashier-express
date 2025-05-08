@@ -14,6 +14,10 @@ const CustomerSchema = new mongoose.Schema({
   notes: { type: String, required: true, unique: true },
 }, { timestamps: true })
 
-CustomerSchema.plugin(AutoIncrement, { inc_field: "id" })
+// Add a unique identifier for the counter
+CustomerSchema.plugin(AutoIncrement, { 
+  inc_field: "id",
+  id: "customer_id" // Add this line to make the counter unique
+})
 
 module.exports = mongoose.model("Customer", CustomerSchema)
