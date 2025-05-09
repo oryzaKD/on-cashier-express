@@ -19,6 +19,10 @@ app.use(express.json());
   const inventoryRoutes = require('./routes/inventory');
   app.use('/api/inventory', inventoryRoutes);
 
+  // Route setup for categories
+  const categoryRoutes = require('./routes/category');
+  app.use('/api/categories', categoryRoutes);
+
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI, {
   tls: true,
